@@ -1,18 +1,1 @@
 @import 'tailwindcss';
-
-@layer base {
-  :root {
-    --foreground: #09090b;
-    --background: #ffffff;
-    --accent: #f59e0b;
-    --section: #f3f4f6;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-* {
-  @apply border-gray-200;
-}
