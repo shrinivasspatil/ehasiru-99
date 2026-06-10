@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div>
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-foreground border-b border-gray-200">
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/images/logo.svg" alt="E-Hasiru" width={40} height={40} className="w-10 h-10" />
@@ -124,8 +124,28 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Facility */}
+        <section className="bg-white py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-black text-foreground text-center mb-12">Our Facility</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              {[
+                { src: '/images/facility/front-gate.jpeg', alt: 'Front Gate' },
+                { src: '/images/facility/machines.jpeg', alt: 'Machinery' },
+                { src: '/images/facility/full-team.jpeg', alt: 'Team' },
+                { src: '/images/facility/extracted-metals.jpeg', alt: 'Extracted Metals' },
+                { src: '/images/facility/dismantling-area.jpeg', alt: 'Dismantling Area' }
+              ].map((img, i) => (
+                <div key={i} className="aspect-square rounded overflow-hidden">
+                  <Image src={img.src} alt={img.alt} width={300} height={300} className="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
-        <section className="bg-gray-50 py-20">
+        <section className="bg-section py-20">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-black text-foreground text-center mb-12">Frequently Asked Questions</h2>
             <div>
@@ -149,8 +169,8 @@ export default function Home() {
               ].map((faq, i) => (
                 <div key={i} className="border-b border-gray-200">
                   <details className="py-5">
-                    <summary className="font-bold text-foreground cursor-pointer">{faq.question}</summary>
-                    <div className="mt-3 text-gray-600 text-sm leading-relaxed">{faq.answer}</div>
+                    <summary className="font-bold text-foreground cursor-pointer text-sm">{faq.question}</summary>
+                    <div className="mt-3 text-gray-600 text-sm leading-relaxed font-light">{faq.answer}</div>
                   </details>
                 </div>
               ))}
