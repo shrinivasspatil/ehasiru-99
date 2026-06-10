@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 export function Header() {
@@ -22,9 +23,14 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">EH</span>
-            </div>
+            <Image
+              src="/images/logo.svg"
+              alt="E-Hasiru Logo"
+              width={40}
+              height={40}
+              priority
+              className="w-10 h-10"
+            />
             <span className="hidden sm:inline font-bold text-lg text-balance">E-Hasiru</span>
           </Link>
 

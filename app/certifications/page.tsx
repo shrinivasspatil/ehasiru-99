@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { certifications } from '@/lib/data';
 
 export const metadata = {
@@ -7,6 +8,17 @@ export const metadata = {
 };
 
 export default function Certifications() {
+  const certImages = [
+    { name: 'CPCB', src: '/images/certifications/cpcb.png' },
+    { name: 'EPR', src: '/images/certifications/epr.png' },
+    { name: 'ISO 14001', src: '/images/certifications/iso-14001-2015.png' },
+    { name: 'ISO 9001', src: '/images/certifications/iso-9001-2015.png' },
+    { name: 'ISO 27001', src: '/images/certifications/iso-27001-2022.png' },
+    { name: 'ISO 45001', src: '/images/certifications/iso-45001-2018.png' },
+    { name: 'R2 v3', src: '/images/certifications/r2v3.png' },
+    { name: 'Pollution Board KA', src: '/images/certifications/pollution-board-ka.png' }
+  ];
+
   return (
     <div>
       {/* Header */}
@@ -19,46 +31,24 @@ export default function Certifications() {
         </div>
       </section>
 
-      {/* Certifications Grid */}
+      {/* Certifications Gallery */}
       <section className="py-16 md:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                title: 'CPCB Authorization',
-                description: 'Central Pollution Control Board authorized e-waste recycling facility. We meet all national e-waste management rules and are authorized to handle hazardous electronic waste.',
-                details: ['Hazardous waste management', 'E-waste processing', 'Environmental compliance']
-              },
-              {
-                title: 'ISO 14001:2015',
-                description: 'Environmental Management System certification ensuring our operations maintain the highest environmental standards and minimize ecological impact.',
-                details: ['Waste management', 'Environmental protection', 'Continuous improvement']
-              },
-              {
-                title: 'ISO 9001:2015',
-                description: 'Quality Management System certification demonstrating our commitment to consistent service quality and customer satisfaction.',
-                details: ['Quality assurance', 'Process efficiency', 'Customer focus']
-              },
-              {
-                title: 'E-Stewards Certification',
-                description: 'International certification for responsible e-waste recycling, ensuring worker safety, environmental protection, and data security.',
-                details: ['Worker protection', 'Environmental safety', 'Data destruction']
-              }
-            ].map((cert, index) => (
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Certifications</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {certImages.map((cert) => (
               <div
-                key={index}
-                className="p-8 bg-card rounded-lg border border-border/40 hover:border-primary/40 transition-all hover:shadow-lg"
+                key={cert.name}
+                className="p-6 bg-card rounded-lg border border-border/40 hover:border-primary/40 transition-all hover:shadow-lg flex flex-col items-center justify-center min-h-32"
               >
-                <h3 className="text-2xl font-bold mb-4 text-primary">{cert.title}</h3>
-                <p className="text-muted-foreground mb-6">{cert.description}</p>
-                <ul className="space-y-2">
-                  {cert.details.map((detail) => (
-                    <li key={detail} className="flex items-center gap-2 text-foreground">
-                      <span className="w-2 h-2 bg-primary rounded-full"></span>
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
+                <Image
+                  src={cert.src}
+                  alt={cert.name}
+                  width={120}
+                  height={120}
+                  className="w-full h-24 object-contain mb-3"
+                />
+                <p className="text-sm font-semibold text-center text-muted-foreground">{cert.name}</p>
               </div>
             ))}
           </div>
