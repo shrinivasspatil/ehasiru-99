@@ -9,6 +9,14 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  const faqs = [
+    { q: 'How is data securely destroyed?', a: 'We use NIST 800-88 compliant data wiping for functional storage devices and physical shredding for non-functional or high-security cases. Every destruction event is documented and a Certificate of Destruction is issued.' },
+    { q: 'Do you provide Form 6 documentation?', a: 'Yes. Form 6 is issued for all e-waste processed under the E-Waste (Management) Rules, 2016. This is your compliance record for CPCB purposes.' },
+    { q: 'Do you offer pan-India pickup?', a: 'Yes. We operate pickup services across 245+ cities and towns in India, with primary coverage in Bangalore, Hyderabad, Chennai, Pune, Mumbai, and Delhi NCR.' },
+    { q: 'What types of IT assets do you accept?', a: 'Laptops, desktops, servers, workstations, networking equipment, printers, scanners, UPS systems, mobile devices, tablets, and all peripheral electronics.' },
+    { q: 'Are you CPCB authorised?', a: 'Yes. E-Hasiru holds CPCB Authorisation under the E-Waste (Management) Rules, 2016. We are also ISO certified and R2v3 certified.' }
+  ]
+
   return (
     <>
       {/* Fixed Header */}
