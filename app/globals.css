@@ -2,10 +2,25 @@
 
 @theme {
   --font-lato: 'Lato', system-ui, sans-serif;
-  --background: #ffffff;
-  --foreground: #0f1f17;
-  --primary: #10b981;
-  --primary-light: #6ee7b7;
-  --primary-dark: #059669;
-  --section: #f3f4f6;
+  --color-background: #ffffff;
+  --color-foreground: #0f1f17;
+  --color-primary: #10b981;
+  --color-primary-light: #6ee7b7;
+  --color-primary-dark: #059669;
+  --color-section: #f3f4f6;
+}
+
+@layer utilities {
+  .bg-foreground {
+    @apply [background-color:#0f1f17];
+  }
+  .bg-primary {
+    @apply [background-color:#10b981];
+  }
+  .bg-section {
+    @apply [background-color:#f3f4f6];
+  }
+  .text-foreground {
+    @apply [color:#0f1f17];
+  }
 }
