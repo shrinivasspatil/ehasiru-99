@@ -57,49 +57,63 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gray-900 text-white overflow-hidden">
+        <section className="relative bg-gray-900 text-white overflow-hidden min-h-screen flex items-center">
           <div className="absolute inset-0">
-            <Image src="/images/facility.jpeg" alt="E-Hasiru facility" fill className="object-cover opacity-50" />
+            <div className="absolute inset-0 bg-black/40 z-10"></div>
             <iframe
-              width="100%"
-              height="600"
-              src="https://www.youtube.com/embed/Y4b9VjJB9sU"
+              src="https://www.youtube.com/embed/Y4b9VjJB9sU?autoplay=1&mute=1&loop=1&playlist=Y4b9VjJB9sU"
               title="E-Hasiru facility"
-              className="absolute inset-0 w-full h-full object-cover opacity-40"
+              className="absolute inset-0 w-full h-full"
+              style={{ border: 'none' }}
               allowFullScreen
             />
           </div>
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="inline-block bg-emerald-600 text-white px-3 py-1 rounded text-xs font-semibold mb-4">
-              CPCB AUTHORISED RECYCLER
+          <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="border border-emerald-400 text-emerald-400 inline-block px-3 py-1 rounded-full text-xs font-semibold mb-6">
+              ● CPCB AUTHORISED RECYCLER
             </div>
-            <p className="text-emerald-400 text-sm font-semibold mb-2">ZERO RISK. 100% COMPLIANCE. MAXIMUM VALUE RECOVERY.</p>
-            <h1 className="text-5xl font-bold mb-4">Responsible IT Asset Disposal & E-Waste Recycling Across India</h1>
-            <p className="text-gray-300 mb-8 max-w-2xl">Bengaluru-based, R2v3-certified e-waste recycling company established in 2014. End-to-end ITAD, secure data destruction, and compliant recycling across India. Certificates issued within 7 working days.</p>
+            <p className="text-gray-300 text-sm font-semibold mb-4 tracking-wide">ZERO RISK. 100% COMPLIANCE. MAXIMUM VALUE RECOVERY.</p>
+            <h1 className="text-6xl lg:text-7xl font-black leading-tight mb-6 max-w-4xl">Responsible IT Asset Disposal & E-Waste Recycling Across India</h1>
+            <p className="text-gray-300 mb-8 max-w-2xl text-base leading-relaxed">Bengaluru-based, R2v3-certified e-waste recycling company established in 2014. End-to-end ITAD, secure data destruction, and compliant recycling across India. Certificates issued within 7 working days.</p>
             <div className="flex gap-4">
-              <Link href="/pickup" className="bg-emerald-600 text-white px-6 py-3 rounded hover:bg-emerald-700">Request Pickup</Link>
-              <Link href="/services" className="border border-white text-white px-6 py-3 rounded hover:bg-white hover:text-gray-900">View Services</Link>
+              <Link href="/pickup" className="bg-emerald-600 text-white px-8 py-3 rounded-lg hover:bg-emerald-700 font-semibold">Request Pickup</Link>
+              <Link href="/services" className="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-gray-900 font-semibold transition-all">View Services</Link>
             </div>
           </div>
         </section>
 
         {/* Why Choose Section */}
-        <section className="bg-gray-50 py-16">
+        <section className="bg-gray-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-center text-xs font-semibold text-gray-600 mb-2">WHY ENTERPRISES CHOOSE E-HASIRU</p>
-            <h2 className="text-4xl font-bold text-center mb-12">Compliant. Secure. Documented. Every Disposal, Every Time.</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-8 rounded-lg border border-gray-200">
-                <h3 className="text-xl font-bold mb-3">CPCB Authorised</h3>
-                <p className="text-gray-600">Legally compliant disposal under the E-Waste (Management) Rules, 2016. Every consignment backed by Form 6 documentation.</p>
+            <p className="text-center text-xs font-semibold text-gray-500 mb-2 tracking-widest">WHY ENTERPRISES CHOOSE E-HASIRU</p>
+            <h2 className="text-4xl lg:text-5xl font-black text-center mb-16">Compliant. Secure. Documented. Every Disposal, Every Time.</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white p-10 rounded-lg border border-gray-200 hover:border-emerald-600 transition-all hover:shadow-lg">
+                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-black mb-3">CPCB Authorised</h3>
+                <p className="text-gray-600 leading-relaxed">Legally compliant disposal under the E-Waste (Management) Rules, 2016. Every consignment backed by Form 6 documentation.</p>
               </div>
-              <div className="bg-white p-8 rounded-lg border border-gray-200">
-                <h3 className="text-xl font-bold mb-3">Pan-India Pickup</h3>
-                <p className="text-gray-600">245+ cities and towns covered. We come to your premises — no drop-off required. Scheduled, documented, hassle-free.</p>
+              <div className="bg-white p-10 rounded-lg border border-gray-200 hover:border-emerald-600 transition-all hover:shadow-lg">
+                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-black mb-3">Pan-India Pickup</h3>
+                <p className="text-gray-600 leading-relaxed">245+ cities and towns covered. We come to your premises — no drop-off required. Scheduled, documented, hassle-free.</p>
               </div>
-              <div className="bg-white p-8 rounded-lg border border-gray-200">
-                <h3 className="text-xl font-bold mb-3">Certified Data Destruction</h3>
-                <p className="text-gray-600">NIST 800-88 compliant wiping and physical shredding. Certificate of Destruction issued per device, every time.</p>
+              <div className="bg-white p-10 rounded-lg border border-gray-200 hover:border-emerald-600 transition-all hover:shadow-lg">
+                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-black mb-3">Certified Data Destruction</h3>
+                <p className="text-gray-600 leading-relaxed">NIST 800-88 compliant wiping and physical shredding. Certificate of Destruction issued per device, every time.</p>
               </div>
             </div>
           </div>
@@ -133,23 +147,29 @@ export default function Home() {
         </section>
 
         {/* What We Do Section */}
-        <section className="py-16 bg-white">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center mb-4">What We Do</h2>
-            <p className="text-center text-gray-600 mb-12">End-to-end IT asset and e-waste management for enterprises</p>
+            <h2 className="text-4xl lg:text-5xl font-black text-center mb-4">What We Do</h2>
+            <p className="text-center text-gray-600 mb-16 text-lg">End-to-end IT asset and e-waste management for enterprises</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { title: "IT Asset Disposal", desc: "Compliant disposal of laptops, desktops, servers, and networking equipment with full documentation." },
-                { title: "Secure Data Destruction", desc: "NIST-compliant data wiping and physical destruction with certificate of destruction issued." },
-                { title: "E-Waste Recycling", desc: "CPCB-authorised recycling of all electronic waste categories with sustainability reporting." },
-                { title: "IT Asset Refurbishment", desc: "Extend asset lifecycle through certified refurbishment and responsible remarketing." },
-                { title: "EPR Compliance", desc: "Extended Producer Responsibility documentation, Form 6 issuance, and CPCB compliance support." },
-                { title: "Sustainability Reporting", desc: "CO2 savings calculation, environmental impact reports, and ESG documentation for your organisation." }
+                { title: "IT Asset Disposal", desc: "Compliant disposal of laptops, desktops, servers, and networking equipment with full documentation.", icon: "✓" },
+                { title: "Secure Data Destruction", desc: "NIST-compliant data wiping and physical destruction with certificate of destruction issued.", icon: "✓" },
+                { title: "E-Waste Recycling", desc: "CPCB-authorised recycling of all electronic waste categories with sustainability reporting.", icon: "✓" },
+                { title: "IT Asset Refurbishment", desc: "Extend asset lifecycle through certified refurbishment and responsible remarketing.", icon: "✓" },
+                { title: "EPR Compliance", desc: "Extended Producer Responsibility documentation, Form 6 issuance, and CPCB compliance support.", icon: "✓" },
+                { title: "Sustainability Reporting", desc: "CO2 savings calculation, environmental impact reports, and ESG documentation for your organisation.", icon: "✓" }
               ].map((service, i) => (
-                <div key={i} className="p-6 border border-gray-200 rounded-lg hover:border-emerald-600 hover:shadow-lg transition-all">
-                  <h3 className="text-lg font-bold mb-2">{service.title}</h3>
-                  <p className="text-gray-600 text-sm">{service.desc}</p>
-                  <p className="text-emerald-600 text-sm font-semibold mt-4">Learn more</p>
+                <div key={i} className="p-6 border border-gray-200 rounded-lg hover:border-emerald-600 hover:shadow-lg transition-all group">
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <span className="inline-block w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 font-black text-center text-sm leading-6">✓</span>
+                    </div>
+                    <div>
+                      <h3 className="text-base font-black mb-2 group-hover:text-emerald-600 transition-colors">{service.title}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">{service.desc}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -157,9 +177,9 @@ export default function Home() {
         </section>
 
         {/* Stats Section */}
-        <section className="bg-emerald-600 text-white py-16">
+        <section className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-center text-xs font-semibold mb-12">OUR IMPACT</p>
+            <p className="text-center text-xs font-black mb-12 tracking-widest opacity-90">OUR IMPACT</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
                 { num: "245+", label: "Cities & Towns Covered" },
@@ -168,8 +188,8 @@ export default function Home() {
                 { num: "1,250+", label: "MT of Assets Refurbished" }
               ].map((stat, i) => (
                 <div key={i}>
-                  <div className="text-4xl font-bold">{stat.num}</div>
-                  <p className="text-sm mt-2">{stat.label}</p>
+                  <div className="text-5xl font-black">{stat.num}</div>
+                  <p className="text-sm mt-3 font-semibold opacity-90">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -177,11 +197,11 @@ export default function Home() {
         </section>
 
         {/* How It Works Section */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center mb-4">How It Works</h2>
-            <p className="text-center text-gray-600 mb-12">From pickup to certification in a transparent, documented process</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <h2 className="text-4xl lg:text-5xl font-black text-center mb-4">How It Works</h2>
+            <p className="text-center text-gray-600 mb-16 text-lg">From pickup to certification in a transparent, documented process</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
               {[
                 { num: "01", title: "Collection", desc: "Schedule a pickup or drop off at our facility. We cover 245+ cities across India." },
                 { num: "02", title: "Sorting & Segregation", desc: "Assets are categorised by type, condition, and disposal pathway." },
@@ -191,9 +211,9 @@ export default function Home() {
                 { num: "06", title: "Reporting", desc: "You receive Form 6, certificate of destruction, and CO2 savings report." }
               ].map((step, i) => (
                 <div key={i} className="text-center">
-                  <div className="bg-emerald-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3 font-bold text-lg">{step.num}</div>
-                  <h3 className="font-bold mb-2 text-sm">{step.title}</h3>
-                  <p className="text-xs text-gray-600">{step.desc}</p>
+                  <div className="bg-emerald-600 text-white rounded-full w-14 h-14 flex items-center justify-center mx-auto mb-4 font-black text-lg">{step.num}</div>
+                  <h3 className="font-black mb-3 text-sm">{step.title}</h3>
+                  <p className="text-xs text-gray-600 leading-relaxed">{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -263,51 +283,66 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div>
               <Image src="/images/logo.svg" alt="E-Hasiru" width={40} height={40} className="w-8 h-8 mb-4" />
-              <p className="text-sm">CPCB-authorised e-waste recycling and IT asset disposal. Pan-India pickup. Secure data destruction.</p>
+              <p className="text-sm text-gray-400">CPCB-authorised e-waste recycling and IT asset disposal. Pan-India pickup. Secure data destruction.</p>
             </div>
             <div>
-              <h3 className="text-white font-bold mb-4">SERVICES</h3>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/services/it-asset-disposal">IT Asset Disposal</Link></li>
-                <li><Link href="/services/data-destruction">Data Destruction</Link></li>
-                <li><Link href="/services/ewaste">E-Waste Recycling</Link></li>
-                <li><Link href="/services/refurbishment">Refurbishment</Link></li>
-                <li><Link href="/services/epr">EPR Compliance</Link></li>
+              <h3 className="text-white font-black mb-6 text-sm">SERVICES</h3>
+              <ul className="space-y-3 text-sm">
+                <li><Link href="/services/it-asset-disposal" className="hover:text-emerald-400 transition">IT Asset Disposal</Link></li>
+                <li><Link href="/services/data-destruction" className="hover:text-emerald-400 transition">Data Destruction</Link></li>
+                <li><Link href="/services/ewaste" className="hover:text-emerald-400 transition">E-Waste Recycling</Link></li>
+                <li><Link href="/services/refurbishment" className="hover:text-emerald-400 transition">Refurbishment</Link></li>
+                <li><Link href="/services/epr" className="hover:text-emerald-400 transition">EPR Compliance</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-white font-bold mb-4">COMPANY</h3>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/about">About</Link></li>
-                <li><Link href="/sustainability">Sustainability</Link></li>
-                <li><Link href="/certifications">Certifications</Link></li>
-                <li><Link href="/blog">Blog</Link></li>
-                <li><Link href="/contact">Contact</Link></li>
+              <h3 className="text-white font-black mb-6 text-sm">COMPANY</h3>
+              <ul className="space-y-3 text-sm">
+                <li><Link href="/about" className="hover:text-emerald-400 transition">About</Link></li>
+                <li><Link href="/sustainability" className="hover:text-emerald-400 transition">Sustainability</Link></li>
+                <li><Link href="/certifications" className="hover:text-emerald-400 transition">Certifications</Link></li>
+                <li><Link href="/blog" className="hover:text-emerald-400 transition">Blog</Link></li>
+                <li><Link href="/contact" className="hover:text-emerald-400 transition">Contact</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-white font-bold mb-4">CONTACT</h3>
-              <ul className="space-y-2 text-sm">
-                <li><a href="tel:+919845937366">+91 98459 37366</a></li>
-                <li><a href="mailto:info@ehasiru.com">info@ehasiru.com</a></li>
-                <li>No. 168/B, 7th Main Road, 3rd Phase, Peenya Industrial Area, Bengaluru 560058</li>
-                <li><a href="#linkedin">LinkedIn</a></li>
+              <h3 className="text-white font-black mb-6 text-sm">CONTACT</h3>
+              <ul className="space-y-3 text-sm">
+                <li><a href="tel:+919845937366" className="hover:text-emerald-400 transition">+91 98459 37366</a></li>
+                <li><a href="mailto:info@ehasiru.com" className="hover:text-emerald-400 transition">info@ehasiru.com</a></li>
+                <li className="text-gray-400">No. 168/B, 7th Main Road, 3rd Phase, Peenya Industrial Area, Bengaluru 560058</li>
+                <li><a href="#" className="hover:text-emerald-400 transition">LinkedIn</a></li>
               </ul>
             </div>
           </div>
           <div className="border-t border-gray-700 pt-8">
-            <p className="text-xs text-center">CERTIFICATIONS & AUTHORISATIONS</p>
-            <div className="flex justify-center gap-4 mt-4 flex-wrap">
-              <Image src="/images/certifications/epr.png" alt="EPR" width={60} height={60} className="h-12 w-auto" />
-              <Image src="/images/certifications/cpcb.png" alt="CPCB" width={60} height={60} className="h-12 w-auto" />
-              <Image src="/images/certifications/kspcb.png" alt="KSPCB" width={60} height={60} className="h-12 w-auto" />
-              <Image src="/images/certifications/r2v3.png" alt="R2v3" width={60} height={60} className="h-12 w-auto" />
-              <Image src="/images/certifications/iso-9001.png" alt="ISO 9001" width={60} height={60} className="h-12 w-auto" />
-              <Image src="/images/certifications/iso-14001.png" alt="ISO 14001" width={60} height={60} className="h-12 w-auto" />
-              <Image src="/images/certifications/iso-27001.png" alt="ISO 27001" width={60} height={60} className="h-12 w-auto" />
-              <Image src="/images/certifications/iso-45001.png" alt="ISO 45001" width={60} height={60} className="h-12 w-auto" />
+            <p className="text-xs text-center text-gray-500 font-semibold mb-6 tracking-wider">CERTIFICATIONS & AUTHORISATIONS</p>
+            <div className="flex justify-center gap-6 flex-wrap mb-8">
+              {[
+                { src: '/images/certifications/epr.png', alt: 'EPR' },
+                { src: '/images/certifications/cpcb.png', alt: 'CPCB' },
+                { src: '/images/certifications/kspcb.png', alt: 'KSPCB' },
+                { src: '/images/certifications/r2v3.png', alt: 'R2v3' },
+                { src: '/images/certifications/iso-9001.png', alt: 'ISO 9001' },
+                { src: '/images/certifications/iso-14001.png', alt: 'ISO 14001' },
+                { src: '/images/certifications/iso-27001.png', alt: 'ISO 27001' },
+                { src: '/images/certifications/iso-45001.png', alt: 'ISO 45001' }
+              ].map((cert, i) => (
+                <div key={i} className="h-16 w-auto flex items-center">
+                  <Image 
+                    src={cert.src} 
+                    alt={cert.alt} 
+                    width={80} 
+                    height={64} 
+                    className="h-14 w-auto object-contain"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                </div>
+              ))}
             </div>
-            <p className="text-xs text-center mt-8">© 2026 E-Hasiru Green IT Solutions. All rights reserved.</p>
+            <p className="text-xs text-center text-gray-500">© 2026 E-Hasiru Green IT Solutions. All rights reserved.</p>
           </div>
         </div>
       </footer>
