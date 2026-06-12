@@ -146,7 +146,7 @@ export default function Home() {
               E-Hasiru Fix: A fully managed, compliant & transparent lifecycle — from pickup to certification.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
                 title: 'Risk of Data Leakage',
@@ -169,9 +169,9 @@ export default function Home() {
                 icon: 'clipboard'
               }
             ].map((item, i) => (
-              <div key={i} className="relative overflow-hidden border border-white/10 p-6 flex flex-col gap-4" style={{ borderRadius: 0 }}>
-                <div className="w-10 h-10 bg-primary/20 flex items-center justify-center shrink-0" style={{ borderRadius: 0 }}>
-                  <div className="w-5 h-5 text-primary-light">
+              <div key={i} className="relative overflow-hidden border border-white/10 p-8 flex flex-col gap-4 hover:border-primary/50 transition-all" style={{ borderRadius: '2px' }}>
+                <div className="w-12 h-12 flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', borderRadius: '4px' }}>
+                  <div className="w-6 h-6 text-primary-light">
                     {item.icon === 'alert' && (
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-full h-full">
                         <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
@@ -198,7 +198,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-black text-white text-sm mb-2">{item.title}</h3>
+                  <h3 className="font-black text-white text-base mb-2">{item.title}</h3>
                   <p className="text-sm text-gray-400 font-light leading-relaxed">{item.desc}</p>
                 </div>
               </div>
