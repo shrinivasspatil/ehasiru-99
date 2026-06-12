@@ -283,7 +283,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-black mb-4">Ready to Dispose of Your IT Assets Responsibly?</h2>
           <p className="text-sm md:text-base text-white/80 max-w-2xl mx-auto mb-8 font-light">Join 124+ enterprises who trust E-Hasiru for compliant, documented, and transparent e-waste management.</p>
-          <Link href="/pickup-request/" className="inline-flex items-center px-8 py-3 bg-white text-[#1a6b3c] font-bold rounded-lg hover:bg-gray-100 transition-colors text-sm">Request a Pickup Today</Link>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link href="/pickup-request/" className="inline-flex items-center px-6 py-3 bg-white text-[#1a6b3c] text-sm font-semibold rounded hover:bg-[#e8f5ec] transition-colors">Request Pickup Now</Link>
+            <Link href="/contact/" className="inline-flex items-center px-6 py-3 border border-white/50 text-white text-sm font-semibold rounded hover:bg-white/10 transition-colors">Talk to Us First</Link>
+          </div>
         </div>
       </section>
 
