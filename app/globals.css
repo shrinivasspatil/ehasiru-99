@@ -2,25 +2,17 @@
 
 @theme {
   --font-lato: 'Lato', system-ui, sans-serif;
-  --color-background: #ffffff;
-  --color-foreground: #0f1f17;
-  --color-primary: #10b981;
-  --color-primary-light: #6ee7b7;
-  --color-primary-dark: #059669;
-  --color-section: #f3f4f6;
 }
 
-@layer utilities {
-  .bg-foreground {
-    @apply [background-color:#0f1f17];
-  }
-  .bg-primary {
-    @apply [background-color:#10b981];
-  }
-  .bg-section {
-    @apply [background-color:#f3f4f6];
-  }
-  .text-foreground {
-    @apply [color:#0f1f17];
-  }
+:root {
+  --background: #f8f9f6;
+  --foreground: #0f1f17;
+  --primary: #1a6b3c;
+  --primary-light: #e8f5ec;
+  --section: #e8f5ec;
+}
+
+body {
+  @apply bg-[#f8f9f6] text-[#0f1f17];
+  font-family: var(--font-lato), system-ui, sans-serif;
 }
