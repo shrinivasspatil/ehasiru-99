@@ -1,390 +1,218 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronDown } from 'lucide-react'
+import Image from 'next/image'
 import { useState } from 'react'
 
 export default function Home() {
-  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null)
-
-  const faqs = [
-    {
-      q: 'How is data securely destroyed?',
-      a: 'We use NIST 800-88 compliant data wiping for functional storage devices and physical shredding for non-functional or high-security cases. Every destruction event is documented and a Certificate of Destruction is issued.'
-    },
-    {
-      q: 'Do you provide Form 6 documentation?',
-      a: 'Yes. Form 6 is issued for all e-waste processed under the E-Waste (Management) Rules, 2016. This is your compliance record for CPCB purposes.'
-    },
-    {
-      q: 'Do you offer pan-India pickup?',
-      a: 'Yes. We operate pickup services across 245+ cities and towns in India, with primary coverage in Bangalore, Hyderabad, Chennai, Pune, Mumbai, and Delhi NCR.'
-    },
-    {
-      q: 'What types of IT assets do you accept?',
-      a: 'Laptops, desktops, servers, workstations, networking equipment, printers, scanners, UPS systems, mobile devices, tablets, and all peripheral electronics.'
-    },
-    {
-      q: 'How long does certification take?',
-      a: 'Certificates are typically issued within 7 working days of asset processing and destruction completion.'
-    },
-    {
-      q: 'Are you CPCB authorised?',
-      a: 'Yes. E-Hasiru holds CPCB Authorisation under the E-Waste (Management) Rules, 2016. We are also ISO certified and R2v3 certified.'
-    }
-  ]
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null)
 
   return (
-    <main className="pt-16">
-      {/* Hero Section */}
-      <section className="relative min-h-[88vh] flex items-center overflow-hidden">
+    <main>
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+          <Link href="/" className="flex items-center">
+            <Image src="/images/logo.svg" alt="E-Hasiru" width={120} height={40} className="h-10 w-auto" />
+          </Link>
+          <nav className="hidden md:flex gap-8 items-center text-sm">
+            <Link href="/services" className="hover:text-green-600">Services</Link>
+            <Link href="/about" className="hover:text-green-600">About</Link>
+            <Link href="/sustainability" className="hover:text-green-600">Sustainability</Link>
+            <Link href="/certifications" className="hover:text-green-600">Certifications</Link>
+            <Link href="/contact" className="hover:text-green-600">Contact</Link>
+          </nav>
+          <Link href="/request-pickup" className="bg-emerald-600 text-white px-6 py-2 rounded-lg hover:bg-emerald-700 text-sm font-semibold">
+            Request Pickup
+          </Link>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/images/facility/dismantling-area.jpeg" alt="E-Hasiru facility" fill className="object-cover" priority />
-        </div>
-        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           <iframe
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            style={{ width: '177.78vh', height: '56.25vw', minWidth: '100%', minHeight: '100%' }}
-            src="https://www.youtube.com/embed/wdyrzhwGNgc?autoplay=1&mute=1&loop=1&playlist=wdyrzhwGNgc&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&fs=0&iv_load_policy=3"
-            allow="autoplay; encrypted-media"
-            title="E-Hasiru facility"
+            src="https://www.youtube.com/embed/wdyrzhwGNgc?autoplay=1&mute=1&loop=1&playlist=wdyrzhwGNgc&controls=0"
+            className="absolute inset-0 w-full h-full"
+            style={{ border: 'none' }}
+            allowFullScreen
           />
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(15, 31, 23, 0.7)' }}></div>
         </div>
-        <div className="absolute inset-0 bg-[#0F1F17]/70" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-6 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 bg-[#25D366] rounded-full" />
-              CPCB Authorised Recycler
-            </div>
-            <p className="text-sm font-black text-white/60 uppercase tracking-widest mb-4">Zero Risk. 100% Compliance. Maximum Value Recovery.</p>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black text-white leading-tight">
-              Responsible IT Asset Disposal & E-Waste Recycling Across India
-            </h1>
-            <p className="mt-6 text-base md:text-lg text-white/80 leading-relaxed max-w-2xl font-light">
-              Bengaluru-based, R2v3-certified e-waste recycling company established in 2014. End-to-end ITAD, secure data destruction, and compliant recycling across India. Certificates issued within 7 working days.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/pickup-request" className="inline-flex items-center px-6 py-3 bg-primary text-white text-sm font-bold rounded-lg hover:bg-primary-dark transition-colors">
-                Request Pickup
-              </Link>
-              <Link href="/services" className="inline-flex items-center px-6 py-3 border border-white/50 text-white text-sm font-bold rounded-lg hover:bg-white/10 backdrop-blur-sm transition-colors">
-                View Services
-              </Link>
-            </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="border border-emerald-400 text-emerald-400 inline-block px-4 py-2 rounded-full text-xs font-bold mb-6 tracking-wide">
+            ● CPCB AUTHORISED RECYCLER
+          </div>
+          <p className="text-gray-300 text-sm font-semibold mb-4 tracking-widest">ZERO RISK. 100% COMPLIANCE. MAXIMUM VALUE RECOVERY.</p>
+          <h1 className="text-5xl lg:text-7xl font-black leading-tight mb-6 max-w-4xl text-white">Responsible IT Asset Disposal & E-Waste Recycling Across India</h1>
+          <p className="text-gray-300 mb-8 max-w-2xl text-base leading-relaxed font-light">Bengaluru-based, R2v3-certified e-waste recycling company established in 2014. End-to-end ITAD, secure data destruction, and compliant recycling across India. Certificates issued within 7 working days.</p>
+          <div className="flex gap-4 flex-wrap">
+            <Link href="/request-pickup" className="bg-emerald-600 text-white px-8 py-3 rounded-lg hover:bg-emerald-700 font-bold text-sm">
+              Request Pickup
+            </Link>
+            <Link href="/services" className="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-gray-900 font-bold text-sm transition-all">
+              View Services
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Section */}
-      <section className="bg-background py-16">
+      {/* Compliant Section */}
+      <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-xs font-black uppercase tracking-widest text-primary mb-3">Why Enterprises Choose E-Hasiru</p>
-            <h2 className="text-2xl md:text-3xl font-black text-foreground max-w-2xl mx-auto leading-snug">
-              Compliant. Secure. Documented. Every Disposal, Every Time.
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <h2 className="text-4xl font-black text-center mb-4">Compliant. Secure. Documented. Every Disposal, Every Time.</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
             {[
-              {
-                title: 'CPCB Authorised',
-                desc: 'Legally compliant disposal under the E-Waste (Management) Rules, 2016. Every consignment backed by Form 6 documentation.',
-                icon: 'shield'
-              },
-              {
-                title: 'Pan-India Pickup',
-                desc: '245+ cities and towns covered. We come to your premises — no drop-off required. Scheduled, documented, hassle-free.',
-                icon: 'truck'
-              },
-              {
-                title: 'Certified Data Destruction',
-                desc: 'NIST 800-88 compliant wiping and physical shredding. Certificate of Destruction issued per device, every time.',
-                icon: 'file'
-              }
+              { title: 'CPCB Authorised', desc: 'Legally compliant disposal under E-Waste Rules 2016', icon: '✓' },
+              { title: 'Pan-India Pickup', desc: '245+ cities covered. We come to you.', icon: '✓' },
+              { title: 'Certified Data Destruction', desc: 'NIST-compliant wiping. Certificate per device.', icon: '✓' }
             ].map((item, i) => (
-              <div key={i} className="relative overflow-hidden bg-white border border-gray-100 rounded-xl p-7 flex flex-col justify-between min-h-[180px] shadow-sm hover:shadow-md transition-all">
-                <div className="relative z-10">
-                  <h3 className="font-black text-foreground text-lg mb-3">{item.title}</h3>
-                  <p className="text-sm text-gray-600 font-light leading-relaxed">{item.desc}</p>
+              <div key={i} className="bg-white border border-gray-200 p-8 rounded-lg hover:shadow-lg transition-all">
+                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-6 text-emerald-600 font-bold">
+                  {item.icon}
                 </div>
-                <div className="absolute bottom-0 right-0 z-0 translate-x-6 translate-y-6">
-                  <div className="w-28 h-28 text-primary opacity-20">
-                    {item.icon === 'shield' && (
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-full h-full">
-                        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-                        <path d="m9 12 2 2 4-4" />
-                      </svg>
-                    )}
-                    {item.icon === 'truck' && (
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-full h-full">
-                        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14M17 18a2 2 0 1 1-4 0M7 18a2 2 0 1 1-4 0" />
-                      </svg>
-                    )}
-                    {item.icon === 'file' && (
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-full h-full">
-                        <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
-                        <path d="M14 2v5a1 1 0 0 0 1 1h5M9 15l2 2 4-4" />
-                      </svg>
-                    )}
-                  </div>
-                </div>
+                <h3 className="font-bold text-lg mb-3">{item.title}</h3>
+                <p className="text-gray-600 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* What We Solve Section */}
+      {/* What We Solve */}
       <section style={{ backgroundColor: '#0f1f17' }} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <p className="text-xs font-black uppercase tracking-widest text-primary-light mb-3">The Problem</p>
-            <h2 className="text-2xl md:text-3xl font-black text-white max-w-2xl leading-snug">What We Solve</h2>
-            <p className="mt-3 text-gray-400 font-light max-w-xl">
-              E-Hasiru Fix: A fully managed, compliant & transparent lifecycle — from pickup to certification.
-            </p>
-          </div>
+          <p className="text-emerald-400 text-xs font-black uppercase tracking-widest mb-3">The Problem</p>
+          <h2 className="text-white text-3xl font-black mb-3">What We Solve</h2>
+          <p className="text-gray-400 max-w-2xl mb-12">E-Hasiru Fix: A fully managed, compliant & transparent lifecycle — from pickup to certification.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              {
-                title: 'Risk of Data Leakage',
-                desc: 'Old devices retain sensitive data. Without certified destruction, your organisation is exposed to data breach liability.',
-                icon: 'alert'
-              },
-              {
-                title: 'Lack of Transparency',
-                desc: 'Most disposal channels offer no chain-of-custody documentation. You have no proof of where your assets went.',
-                icon: 'eye'
-              },
-              {
-                title: 'Non-compliance with E-Waste Regulations',
-                desc: 'The E-Waste (Management) Rules, 2016 mandate authorised disposal. Informal channels leave you non-compliant.',
-                icon: 'file-x'
-              },
-              {
-                title: 'No Audit-ready Documentation',
-                desc: 'Without Form 6 and a Certificate of Destruction, your ESG reports and compliance audits have nothing to show.',
-                icon: 'clipboard'
-              }
+              { title: 'Risk of Data Leakage', desc: 'Old devices retain sensitive data. Without certified destruction, your organisation is exposed to data breach liability.' },
+              { title: 'Lack of Transparency', desc: 'Most disposal channels offer no chain-of-custody documentation. You have no proof of where your assets went.' },
+              { title: 'Non-compliance with E-Waste Regulations', desc: 'E-Waste Rules 2016 mandate authorised disposal. Informal channels leave you non-compliant.' },
+              { title: 'No Audit-ready Documentation', desc: 'Without Form 6 and Certificate of Destruction, ESG reports and audits have nothing to show.' }
             ].map((item, i) => (
-              <div key={i} className="relative overflow-hidden border border-white/10 p-8 flex flex-col gap-4 hover:border-primary/50 transition-all" style={{ borderRadius: '2px' }}>
-                <div className="w-12 h-12 flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', borderRadius: '4px' }}>
-                  <div className="w-6 h-6 text-primary-light">
-                    {item.icon === 'alert' && (
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-full h-full">
-                        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-                        <path d="M12 8v4M12 16h.01" />
-                      </svg>
-                    )}
-                    {item.icon === 'eye' && (
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-full h-full">
-                        <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
-                        <circle cx="12" cy="12" r="3" />
-                      </svg>
-                    )}
-                    {item.icon === 'file-x' && (
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-full h-full">
-                        <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zM14 2v5a1 1 0 0 0 1 1h5M14.5 12.5l-5 5M9.5 12.5l5 5" />
-                      </svg>
-                    )}
-                    {item.icon === 'clipboard' && (
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-full h-full">
-                        <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M15 11l-6 6M9 11l6 6" />
-                      </svg>
-                    )}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-black text-white text-base mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-400 font-light leading-relaxed">{item.desc}</p>
-                </div>
+              <div key={i} className="border border-white/10 p-6 flex flex-col gap-4" style={{ borderRadius: '2px' }}>
+                <div className="w-10 h-10 rounded" style={{ backgroundColor: 'rgba(16, 185, 129, 0.15)' }} />
+                <h3 className="font-black text-white text-sm">{item.title}</h3>
+                <p className="text-gray-400 text-sm font-light leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* What We Do Section */}
-      <section className="py-20" style={{ backgroundColor: '#ffffff' }}>
+      {/* What We Do */}
+      <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-black" style={{ color: '#0f1f17' }}>What We Do</h2>
-            <p className="mt-3 max-w-xl mx-auto font-light" style={{ color: '#666666' }}>End-to-end IT asset and e-waste management for enterprises</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-3xl font-black text-center mb-3">What We Do</h2>
+          <p className="text-gray-600 text-center mb-12">End-to-end IT asset and e-waste management for enterprises</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              {
-                title: 'IT Asset Disposal',
-                desc: 'Compliant disposal of laptops, desktops, servers, and networking equipment with full documentation.',
-                icon: 'monitor',
-                href: '/services/it-asset-disposal'
-              },
-              {
-                title: 'Secure Data Destruction',
-                desc: 'NIST-compliant data wiping and physical destruction with certificate of destruction issued.',
-                icon: 'shield',
-                href: '/services/data-destruction'
-              },
-              {
-                title: 'E-Waste Recycling',
-                desc: 'CPCB-authorised recycling of all electronic waste categories with sustainability reporting.',
-                icon: 'refresh',
-                href: '/services/ewaste-recycling'
-              },
-              {
-                title: 'IT Asset Refurbishment',
-                desc: 'Extend asset lifecycle through certified refurbishment and responsible remarketing.',
-                icon: 'settings',
-                href: '/services/refurbishment'
-              },
-              {
-                title: 'EPR Compliance',
-                desc: 'Extended Producer Responsibility documentation, Form 6 issuance, and CPCB compliance support.',
-                icon: 'file-text',
-                href: '/services/epr-compliance'
-              },
-              {
-                title: 'Sustainability Reporting',
-                desc: 'CO2 savings calculation, environmental impact reports, and ESG documentation for your organisation.',
-                icon: 'chart',
-                href: '/sustainability'
-              }
-            ].map((service, i) => (
-              <Link key={i} href={service.href} className="group p-6 hover:shadow-md transition-all" style={{ borderRadius: '4px', border: '1px solid #e5e7eb' }}>
-                <div className="w-10 h-10 flex items-center justify-center mb-4 group-hover:opacity-80 transition-opacity" style={{ backgroundColor: '#f3f4f6', borderRadius: '4px' }}>
-                  <div className="w-5 h-5" style={{ color: '#10b981' }}>
-                    {service.icon === 'monitor' && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full"><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>}
-                    {service.icon === 'shield' && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg>}
-                    {service.icon === 'refresh' && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16M8 16H3v5" /></svg>}
-                    {service.icon === 'settings' && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" /><circle cx="12" cy="12" r="3" /></svg>}
-                    {service.icon === 'file-text' && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zM14 2v5a1 1 0 0 0 1 1h5M10 9H8M16 13H8M16 17H8" /></svg>}
-                    {service.icon === 'chart' && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full"><path d="M5 21v-6M12 21V3M19 21V9" /></svg>}
-                  </div>
-                </div>
-                <h3 className="font-bold mb-2" style={{ color: '#0f1f17' }}>{service.title}</h3>
-                <p className="text-sm leading-relaxed font-light mb-4" style={{ color: '#999999' }}>{service.desc}</p>
-                <span className="inline-flex items-center gap-1 text-xs font-bold" style={{ color: '#10b981' }}>
-                  Learn more
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5"><path d="m9 18 6-6-6-6" /></svg>
-                </span>
-              </Link>
+              { title: 'IT Asset Disposal', desc: 'Compliant disposal with full documentation' },
+              { title: 'Secure Data Destruction', desc: 'NIST-compliant wiping. Certificate issued.' },
+              { title: 'E-Waste Recycling', desc: 'CPCB-authorised recycling with reporting' },
+              { title: 'IT Asset Refurbishment', desc: 'Extend lifecycle through refurbishment' },
+              { title: 'EPR Compliance', desc: 'Form 6, documentation, compliance support' },
+              { title: 'Sustainability Reporting', desc: 'CO2 savings and ESG documentation' }
+            ].map((item, i) => (
+              <div key={i} className="border border-gray-200 p-6 rounded-lg hover:shadow-lg transition-all" style={{ borderRadius: '2px' }}>
+                <h3 className="font-bold text-sm mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Impact Section */}
-      <section className="bg-foreground py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mb-10">Our Impact</p>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+      {/* Stats */}
+      <section style={{ backgroundColor: '#0f1f17' }} className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gray-400 text-xs font-black uppercase tracking-widest mb-12">OUR IMPACT</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { num: '245+', label: 'Cities & Towns Covered' },
-              { num: '124+', label: 'Corporate Clients Served' },
-              { num: '12,000+', label: 'MT of E-Waste Recycled' },
-              { num: '1,250+', label: 'MT of Assets Refurbished' }
+              { num: '245+', label: 'Cities & Towns' },
+              { num: '124+', label: 'Clients Served' },
+              { num: '12,000+', label: 'MT Recycled' },
+              { num: '1,250+', label: 'MT Refurbished' }
             ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="font-serif text-4xl md:text-5xl text-white">{stat.num}</div>
-                <div className="mt-2 text-sm text-gray-300">{stat.label}</div>
+              <div key={i}>
+                <div className="text-5xl font-black text-white">{stat.num}</div>
+                <p className="text-gray-300 text-sm mt-3 font-semibold">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How It Works Section */}
+      {/* How It Works */}
       <section style={{ backgroundColor: '#ecfdf5' }} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground">How It Works</h2>
-            <p className="mt-3 text-gray-600 max-w-xl mx-auto">From pickup to certification in a transparent, documented process</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h2 className="text-3xl font-black text-center mb-3">How It Works</h2>
+          <p className="text-gray-600 text-center mb-12">From pickup to certification in a transparent process</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {[
-              { num: '01', title: 'Collection', desc: 'Schedule a pickup or drop off at our facility. We cover 245+ cities across India.' },
-              { num: '02', title: 'Sorting & Segregation', desc: 'Assets are categorised by type, condition, and disposal pathway.' },
-              { num: '03', title: 'Data Destruction', desc: 'All storage media is wiped or physically destroyed to NIST standards. Certificate issued.' },
-              { num: '04', title: 'Recycling', desc: 'Non-reusable components are processed under CPCB-authorised recycling protocols.' },
-              { num: '05', title: 'Refurbishment', desc: 'Viable assets are tested, repaired, and prepared for responsible remarketing.' },
-              { num: '06', title: 'Reporting', desc: 'You receive Form 6, certificate of destruction, and CO2 savings report.' }
+              { num: '01', title: 'Collection' },
+              { num: '02', title: 'Segregation' },
+              { num: '03', title: 'Data Destruction' },
+              { num: '04', title: 'Recycling' },
+              { num: '05', title: 'Refurbishment' },
+              { num: '06', title: 'Reporting' }
             ].map((step, i) => (
-              <div key={i} className="flex gap-4">
-                <div className="shrink-0 w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
-                  <span className="text-xs font-bold text-primary">{step.num}</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{step.title}</h3>
-                  <p className="mt-1 text-sm text-gray-600 leading-relaxed">{step.desc}</p>
-                </div>
+              <div key={i} className="text-center">
+                <div className="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto mb-4 font-black">{step.num}</div>
+                <p className="font-bold text-sm">{step.title}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* What Clients Say Section */}
+      {/* Testimonials */}
       <section style={{ backgroundColor: '#ecfdf5' }} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-black text-foreground">What Clients Say</h2>
-          </div>
+          <h2 className="text-3xl font-black text-center mb-12">What Clients Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              {
-                quote: 'E-Hasiru handled our 400-laptop disposal end-to-end. Certificate of destruction delivered on time, zero data risk. Exactly what our security team needed.',
-                name: 'Riyazat',
-                company: 'Voltvave Innovations, Bangalore'
-              },
-              {
-                quote: 'We needed Form 6 documentation for our annual audit. E-Hasiru processed everything within the week and the paperwork was spotless.',
-                name: 'Nikhil (Procurement Head)',
-                company: 'Manufacturing Firm, Peenya Bangalore'
-              },
-              {
-                quote: 'Pan-India coverage made the difference. We had assets across three cities and they coordinated the entire pickup without us lifting a finger.',
-                name: 'Srinivas Rao (CFO)',
-                company: 'Financial Services Firm, Hyderabad'
-              }
-            ].map((testimonial, i) => (
-              <div key={i} className="bg-section rounded-lg p-6 border border-primary/10">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6 text-primary/30 mb-4">
-                  <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
-                  <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
-                </svg>
-                <p className="text-sm text-gray-700 leading-relaxed mb-4 font-light">{testimonial.quote}</p>
-                <div>
-                  <p className="text-sm font-bold text-foreground">{testimonial.name}</p>
-                  <p className="text-xs text-gray-500">{testimonial.company}</p>
-                </div>
+              { quote: 'Professional, transparent, and fully compliant. Exactly what we needed.', author: 'CTO, TechCorp India', company: 'Fortune 500' },
+              { quote: 'Best-in-class data destruction certification. Highly recommended.', author: 'CISO, Financial Services', company: 'Leading Bank' },
+              { quote: 'Turned e-waste into environmental impact reporting. Amazing process.', author: 'CSR Head, Manufacturing', company: 'Large Industrial' }
+            ].map((item, i) => (
+              <div key={i} className="bg-white p-8 rounded-lg border border-gray-200">
+                <p className="text-gray-700 mb-6 italic">"{item.quote}"</p>
+                <p className="font-bold text-sm">{item.author}</p>
+                <p className="text-gray-600 text-xs">{item.company}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ */}
       <section style={{ backgroundColor: '#ecfdf5' }} className="py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-foreground">Frequently Asked Questions</h2>
-          </div>
-          <div>
-            {faqs.map((faq, i) => (
-              <div key={i} className="border-b border-gray-200">
+          <h2 className="text-3xl font-black text-center mb-12">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            {[
+              { q: 'How do I schedule a pickup?', a: 'Visit request-pickup or call. We arrange pickup at your convenience across 245+ cities.' },
+              { q: 'Is my data safe?', a: 'Yes. NIST 800-88 compliant destruction with per-device certification.' },
+              { q: 'What happens to my assets?', a: 'Refurbishable assets are refurbished responsibly. Others are recycled under CPCB norms.' },
+              { q: 'Do I get documentation?', a: 'Yes. Form 6, Certificate of Destruction, and CO2 savings report included.' },
+              { q: 'How long does it take?', a: 'Pickup within 3 days. Certificates issued within 7 working days.' },
+              { q: 'What\'s the cost?', a: 'Pricing depends on volume and asset type. Contact us for a quote.' }
+            ].map((item, i) => (
+              <div key={i} className="border border-gray-300 rounded-lg">
                 <button
-                  onClick={() => setExpandedFAQ(expandedFAQ === i ? null : i)}
-                  className="w-full flex items-center justify-between py-5 text-left"
-                  aria-expanded={expandedFAQ === i}
+                  className="w-full px-6 py-4 text-left font-bold flex justify-between items-center hover:bg-gray-50"
+                  onClick={() => setOpenFAQ(openFAQ === i ? null : i)}
                 >
-                  <span className="text-sm font-bold text-foreground pr-4">{faq.q}</span>
-                  <ChevronDown className={`w-4 h-4 text-primary shrink-0 transition-transform ${expandedFAQ === i ? 'rotate-180' : ''}`} />
+                  {item.q}
+                  <span>{openFAQ === i ? '−' : '+'}</span>
                 </button>
-                {expandedFAQ === i && (
-                  <div className="pb-5 text-sm text-gray-600 font-light">{faq.a}</div>
+                {openFAQ === i && (
+                  <div className="px-6 py-4 border-t border-gray-300 bg-gray-50 text-gray-700 text-sm">
+                    {item.a}
+                  </div>
                 )}
               </div>
             ))}
@@ -392,23 +220,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-primary py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-3xl md:text-4xl text-white">Ready to Dispose Your IT Assets Responsibly?</h2>
-          <p className="mt-4 text-base text-white/80 max-w-xl mx-auto leading-relaxed">
-            Schedule a free assessment. Our team will evaluate your assets, provide a disposal plan, and handle everything from pickup to certification.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/pickup-request" className="inline-flex items-center px-6 py-3 bg-white text-primary text-sm font-semibold rounded hover:bg-section transition-colors">
-              Request Pickup Now
-            </Link>
-            <Link href="/contact" className="inline-flex items-center px-6 py-3 border border-white/50 text-white text-sm font-semibold rounded hover:bg-white/10 transition-colors">
-              Talk to Us First
-            </Link>
-          </div>
+      {/* CTA */}
+      <section style={{ backgroundColor: '#0f1f17' }} className="py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-black text-white mb-6">Ready to Dispose Your IT Assets Responsibly?</h2>
+          <p className="text-gray-300 mb-8">Get started with a free quote. CPCB compliant, transparent, documented.</p>
+          <Link href="/request-pickup" className="bg-emerald-600 text-white px-8 py-4 rounded-lg hover:bg-emerald-700 font-bold inline-block">
+            Request Free Pickup
+          </Link>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-400 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div>
+              <Image src="/images/logo.svg" alt="E-Hasiru" width={80} height={32} className="h-8 w-auto mb-4" />
+              <p className="text-xs leading-relaxed">CPCB-authorised e-waste recycling and IT asset disposal across India.</p>
+            </div>
+            <div>
+              <p className="font-bold text-white mb-4 text-xs">SERVICES</p>
+              <ul className="space-y-2 text-xs">
+                <li><Link href="/services">IT Asset Disposal</Link></li>
+                <li><Link href="/services">Data Destruction</Link></li>
+                <li><Link href="/services">E-Waste Recycling</Link></li>
+                <li><Link href="/services">Refurbishment</Link></li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-bold text-white mb-4 text-xs">COMPANY</p>
+              <ul className="space-y-2 text-xs">
+                <li><Link href="/about">About</Link></li>
+                <li><Link href="/sustainability">Sustainability</Link></li>
+                <li><Link href="/certifications">Certifications</Link></li>
+                <li><Link href="/contact">Contact</Link></li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-bold text-white mb-4 text-xs">CONTACT</p>
+              <p className="text-xs mb-2">+91 98459 37366</p>
+              <p className="text-xs mb-2">info@ehasiru.com</p>
+              <p className="text-xs">Bengaluru, India</p>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 pt-8">
+            <p className="text-center text-xs text-gray-500">© 2024 E-Hasiru. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </main>
   )
 }
