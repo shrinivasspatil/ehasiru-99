@@ -34,7 +34,7 @@ export default function Home() {
               <Link href="/contact/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Contact</Link>
             </nav>
             <div className="hidden md:block">
-              <Link href="/pickup-request/" className="inline-flex items-center px-4 py-2 bg-primary text-white text-sm font-semibold rounded hover:bg-primary-dark transition-colors">Request Pickup</Link>
+              <Link href="/pickup-request/" className="inline-flex items-center px-6 py-2.5 text-white text-sm font-bold rounded hover:opacity-90 transition-opacity" style={{ backgroundColor: '#1a6b3c' }}>Request Pickup</Link>
             </div>
             <button className="md:hidden p-2 text-foreground" aria-label="Toggle menu">
               <Menu className="w-5 h-5" />
