@@ -76,18 +76,41 @@ export default function Home() {
             <p className="text-xs font-black uppercase tracking-widest text-[#1a6b3c] mb-3">Why Enterprises Choose E-Hasiru</p>
             <h2 className="text-2xl md:text-3xl font-black text-[#0f1f17]">Compliant. Secure. Documented. Every Disposal, Every Time.</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              {title: 'CPCB Authorised', desc: 'Legally compliant disposal under the E-Waste (Management) Rules, 2016. Every consignment backed by Form 6 documentation.'},
-              {title: 'Pan-India Pickup', desc: '245+ cities and towns covered. We come to your premises—no drop-off required. Scheduled, documented, hassle-free.'},
-              {title: 'Certified Data Destruction', desc: 'NIST 800-88 compliant wiping and physical shredding. Certificate of Destruction issued per device, every time.'}
+              {title: 'CPCB Authorised', desc: 'Legally compliant disposal under the E-Waste (Management) Rules, 2016. Every consignment backed by Form 6 documentation.', icon: 'shield-check'},
+              {title: 'Pan-India Pickup', desc: '245+ cities and towns covered. We come to your premises—no drop-off required. Scheduled, documented, hassle-free.', icon: 'truck'},
+              {title: 'Certified Data Destruction', desc: 'NIST 800-88 compliant wiping and physical shredding. Certificate of Destruction issued per device, every time.', icon: 'file-check'}
             ].map((item, i) => (
-              <div key={i} className="bg-white p-8 rounded-lg border border-gray-100 hover:border-gray-300 transition-colors">
-                <div className="w-10 h-10 bg-[#e8f5ec] rounded flex items-center justify-center mb-4">
-                  <svg className="w-5 h-5 text-[#1a6b3c]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <div key={i} className="relative overflow-hidden bg-white rounded-xl p-7 border border-gray-100 shadow-sm">
+                <div className="relative z-10">
+                  <h3 className="text-lg font-black text-[#0f1f17] mb-3">{item.title}</h3>
+                  <p className="text-sm text-gray-600 font-light leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="text-lg font-bold text-[#0f1f17] mb-2">{item.title}</h3>
-                <p className="text-sm text-[#4b5563] font-light leading-relaxed">{item.desc}</p>
+                <div className="absolute bottom-0 right-0 z-0 translate-x-6 translate-y-6">
+                  {item.icon === 'shield-check' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-28 h-28 text-[#1a6b3c] opacity-20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+                      <path d="m9 12 2 2 4-4"/>
+                    </svg>
+                  )}
+                  {item.icon === 'truck' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-28 h-28 text-[#1a6b3c] opacity-20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                      <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+                      <path d="M15 18H9"/>
+                      <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+                      <circle cx="17" cy="18" r="2"/>
+                      <circle cx="7" cy="18" r="2"/>
+                    </svg>
+                  )}
+                  {item.icon === 'file-check' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-28 h-28 text-[#1a6b3c] opacity-20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/>
+                      <path d="M14 2v5a1 1 0 0 0 1 1h5"/>
+                      <path d="m9 15 2 2 4-4"/>
+                    </svg>
+                  )}
+                </div>
               </div>
             ))}
           </div>
