@@ -3,21 +3,39 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
-
-const faqs = [
-  { q: 'How is data securely destroyed?', a: 'We use NIST 800-88 compliant data wiping for functional storage devices and physical shredding for non-functional or high-security cases. Every destruction event is documented and a Certificate of Destruction is issued.' },
-  { q: 'Do you provide Form 6 documentation?', a: 'Yes. Form 6 is issued for all e-waste processed under the E-Waste (Management) Rules, 2016. This is your compliance record for CPCB purposes.' },
-  { q: 'Do you offer pan-India pickup?', a: 'Yes. We operate pickup services across 245+ cities and towns in India, with primary coverage in Bangalore, Hyderabad, Chennai, Pune, Mumbai, and Delhi NCR.' },
-  { q: 'What types of IT assets do you accept?', a: 'Laptops, desktops, servers, workstations, networking equipment, printers, scanners, UPS systems, mobile devices, tablets, and all peripheral electronics.' },
-  { q: 'Are you CPCB authorised?', a: 'Yes. E-Hasiru holds CPCB Authorisation under the E-Waste (Management) Rules, 2016. We are also ISO certified and R2v3 certified.' }
-]
+import { ChevronDown, Menu } from 'lucide-react'
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <main className="pt-16">
+    <>
+      {/* Fixed Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background transition-shadow duration-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <Link href="/" className="flex items-center">
+              <Image alt="E-Hasiru" src="/images/logo.svg" width={120} height={40} className="h-10 w-auto" />
+            </Link>
+            <nav className="hidden md:flex items-center gap-8">
+              <Link href="/services/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Services</Link>
+              <Link href="/about/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">About</Link>
+              <Link href="/sustainability/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Sustainability</Link>
+              <Link href="/certifications/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Certifications</Link>
+              <Link href="/contact/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Contact</Link>
+            </nav>
+            <div className="hidden md:block">
+              <Link href="/pickup-request/" className="inline-flex items-center px-4 py-2 bg-primary text-white text-sm font-semibold rounded hover:bg-primary-dark transition-colors">Request Pickup</Link>
+            </div>
+            <button className="md:hidden p-2 text-foreground" aria-label="Toggle menu">
+              <Menu className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main className="pt-16">
       {/* Hero */}
       <section className="relative min-h-[88vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
@@ -216,5 +234,6 @@ export default function Home() {
         </div>
       </footer>
     </main>
+    </>
   )
 }
