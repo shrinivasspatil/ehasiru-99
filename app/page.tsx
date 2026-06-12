@@ -201,15 +201,30 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="bg-[#e8f5ec] py-16">
+      <section className="bg-[#e8f5ec] py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-black text-[#0f1f17]">How It Works</h2>
+          <div className="text-center mb-14">
+            <h2 className="font-serif text-3xl md:text-4xl text-[#0f1f17]">How It Works</h2>
             <p className="mt-3 text-sm text-[#4b5563] max-w-xl mx-auto font-light">From pickup to certification in a transparent, documented process</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
-            {[{num: '01', t: 'Collection'}, {num: '02', t: 'Sorting & Segregation'}, {num: '03', t: 'Data Destruction'}, {num: '04', t: 'Recycling'}, {num: '05', t: 'Refurbishment'}, {num: '06', t: 'Reporting'}].map((s, i) => (
-              <div key={i} className="text-center"><div className="bg-[#1a6b3c] text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3 font-black text-sm">{s.num}</div><h3 className="text-xs font-bold text-[#0f1f17]">{s.t}</h3></div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {num: '01', title: 'Collection', desc: 'Schedule a pickup or drop off at our facility. We cover 245+ cities across India.'},
+              {num: '02', title: 'Sorting & Segregation', desc: 'Assets are categorised by type, condition, and disposal pathway.'},
+              {num: '03', title: 'Data Destruction', desc: 'All storage media is wiped or physically destroyed to NIST standards. Certificate issued.'},
+              {num: '04', title: 'Recycling', desc: 'Non-reusable components are processed under CPCB-authorised recycling protocols.'},
+              {num: '05', title: 'Refurbishment', desc: 'Viable assets are tested, repaired, and prepared for responsible remarketing.'},
+              {num: '06', title: 'Reporting', desc: 'You receive Form 6, certificate of destruction, and CO2 savings report.'}
+            ].map((step, i) => (
+              <div key={i} className="flex gap-4">
+                <div className="shrink-0 w-10 h-10 rounded-full bg-[#1a6b3c]/10 border border-[#1a6b3c]/20 flex items-center justify-center">
+                  <span className="text-xs font-bold text-[#1a6b3c]">{step.num}</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-[#0f1f17]">{step.title}</h3>
+                  <p className="mt-1 text-sm text-[#4b5563] font-light leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
