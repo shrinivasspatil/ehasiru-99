@@ -164,16 +164,21 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              {title: 'IT Asset Disposal', desc: 'Compliant disposal of laptops, desktops, servers, and networking equipment with full documentation.'},
-              {title: 'Secure Data Destruction', desc: 'NIST-compliant data wiping and physical destruction with certificate of destruction issued.'},
-              {title: 'E-Waste Recycling', desc: 'CPCB-authorised recycling of all electronic waste categories with sustainability reporting.'},
-              {title: 'IT Asset Refurbishment', desc: 'Extend asset lifecycle through certified refurbishment and responsible remarketing.'},
-              {title: 'EPR Compliance', desc: 'Extended Producer Responsibility documentation, Form 6 issuance, and CPCB compliance support.'},
-              {title: 'Sustainability Reporting', desc: 'CO2 savings calculation, environmental impact reports, and ESG documentation for your organisation.'}
+              {title: 'IT Asset Disposal', desc: 'Compliant disposal of laptops, desktops, servers, and networking equipment with full documentation.', icon: 'monitor'},
+              {title: 'Secure Data Destruction', desc: 'NIST-compliant data wiping and physical destruction with certificate of destruction issued.', icon: 'shield'},
+              {title: 'E-Waste Recycling', desc: 'CPCB-authorised recycling of all electronic waste categories with sustainability reporting.', icon: 'refresh'},
+              {title: 'IT Asset Refurbishment', desc: 'Extend asset lifecycle through certified refurbishment and responsible remarketing.', icon: 'settings'},
+              {title: 'EPR Compliance', desc: 'Extended Producer Responsibility documentation, Form 6 issuance, and CPCB compliance support.', icon: 'file'},
+              {title: 'Sustainability Reporting', desc: 'CO2 savings calculation, environmental impact reports, and ESG documentation for your organisation.', icon: 'chart'}
             ].map((item, i) => (
               <Link key={i} href="#" className="group bg-white border border-gray-100 rounded p-6 hover:border-gray-300 hover:shadow-sm transition-all">
                 <div className="w-10 h-10 bg-gray-100 rounded flex items-center justify-center mb-4 group-hover:bg-[#e8f5ec]">
-                  <svg className="w-5 h-5 text-[#1a6b3c]" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+                  {item.icon === 'monitor' && <svg className="w-5 h-5 text-[#1a6b3c]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>}
+                  {item.icon === 'shield' && <svg className="w-5 h-5 text-[#1a6b3c]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>}
+                  {item.icon === 'refresh' && <svg className="w-5 h-5 text-[#1a6b3c]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16M8 16H3v5"/></svg>}
+                  {item.icon === 'settings' && <svg className="w-5 h-5 text-[#1a6b3c]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg>}
+                  {item.icon === 'file' && <svg className="w-5 h-5 text-[#1a6b3c]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10 9H8M16 13H8M16 17H8"/></svg>}
+                  {item.icon === 'chart' && <svg className="w-5 h-5 text-[#1a6b3c]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path d="M5 21v-6M12 21V3M19 21V9"/></svg>}
                 </div>
                 <h3 className="text-sm font-bold text-[#0f1f17] mb-2">{item.title}</h3>
                 <p className="text-xs text-gray-500 font-light leading-relaxed">{item.desc}</p>
