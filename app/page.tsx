@@ -231,21 +231,27 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-[#e8f5ec] py-16">
+      <section className="bg-[#f8f9f6] py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-black text-[#0f1f17]">What Clients Say</h2>
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-black text-[#0f1f17]">What Clients Say</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              {quote: 'E-Hasiru made our IT asset disposal so simple. Pickup was on schedule, destruction was documented, and we got Form 6 within a week.', name: 'Rajesh Kumar', company: 'TechCorp India'},
-              {quote: 'For our ESG compliance audit, having a certified recycler like E-Hasiru was crucial. They provided all the documentation we needed.', name: 'Priya Singh', company: 'Global Finance Ltd'},
-              {quote: 'Zero hassle. They handled 500+ devices from our offices across India. Excellent service, transparent pricing, and reliable follow-up.', name: 'Anil Patel', company: 'Manufacturing Solutions'}
+              {quote: 'E-Hasiru handled our 400-laptop disposal end-to-end. Certificate of destruction delivered on time, zero data risk. Exactly what our security team needed.', name: 'Riyazat', company: 'Voltvave Innovations, Bangalore'},
+              {quote: 'We needed Form 6 documentation for our annual audit. E-Hasiru processed everything within the week and the paperwork was spotless.', name: 'Nikhil (Procurement Head)', company: 'Manufacturing Firm, Peenya Bangalore'},
+              {quote: 'Pan-India coverage made the difference. We had assets across three cities and they coordinated the entire pickup without us lifting a finger.', name: 'Srinivas Rao (CFO)', company: 'Financial Services Firm, Hyderabad'}
             ].map((t, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-lg p-6 hover:shadow-sm transition-all">
-                <p className="text-sm text-[#4b5563] font-light leading-relaxed mb-4">"{t.quote}"</p>
-                <p className="text-xs font-bold text-[#0f1f17]">{t.name}</p>
-                <p className="text-xs text-[#1a6b3c] font-light">{t.company}</p>
+              <div key={i} className="bg-[#e8f5ec] rounded-lg p-6 border border-[#1a6b3c]/10">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#1a6b3c]/30 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/>
+                  <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/>
+                </svg>
+                <p className="text-sm text-gray-700 leading-relaxed mb-4 font-light">{t.quote}</p>
+                <div>
+                  <p className="text-sm font-bold text-[#0f1f17]">{t.name}</p>
+                  <p className="text-xs text-gray-500">{t.company}</p>
+                </div>
               </div>
             ))}
           </div>
