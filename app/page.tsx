@@ -297,7 +297,7 @@ export default function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section className="bg-section py-20">
+      <section style={{ backgroundColor: '#ecfdf5' }} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="font-serif text-3xl md:text-4xl text-foreground">How It Works</h2>
@@ -327,7 +327,7 @@ export default function Home() {
       </section>
 
       {/* What Clients Say Section */}
-      <section className="bg-background py-20">
+      <section style={{ backgroundColor: '#ecfdf5' }} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-black text-foreground">What Clients Say</h2>
@@ -367,7 +367,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-section py-20">
+      <section style={{ backgroundColor: '#ecfdf5' }} className="py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-foreground">Frequently Asked Questions</h2>
