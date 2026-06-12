@@ -259,20 +259,20 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-[#e8f5ec] py-16">
+      <section className="bg-[#e8f5ec] py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-black text-[#0f1f17]">Frequently Asked Questions</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-[#0f1f17]">Frequently Asked Questions</h2>
           </div>
-          <div className="space-y-3">
+          <div>
             {faqs.map((faq, i) => (
-              <button key={i} onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full text-left bg-white border border-gray-100 rounded-lg p-6 hover:border-gray-300 transition-colors">
-                <div className="flex items-start justify-between">
-                  <h3 className="font-bold text-[#0f1f17] text-sm flex-1">{faq.q}</h3>
-                  <ChevronDown className={`w-5 h-5 text-[#1a6b3c] transition-transform flex-shrink-0 ml-4 ${openFaq === i ? 'rotate-180' : ''}`} />
-                </div>
-                {openFaq === i && <p className="mt-4 text-xs text-[#4b5563] font-light leading-relaxed">{faq.a}</p>}
-              </button>
+              <div key={i} className="border-b border-gray-200">
+                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center justify-between py-5 text-left" aria-expanded={openFaq === i}>
+                  <span className="text-sm font-bold text-[#0f1f17] pr-4">{faq.q}</span>
+                  <ChevronDown className={`w-4 h-4 text-[#1a6b3c] shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
+                </button>
+                {openFaq === i && <p className="pb-5 text-sm text-[#4b5563] font-light leading-relaxed">{faq.a}</p>}
+              </div>
             ))}
           </div>
         </div>
