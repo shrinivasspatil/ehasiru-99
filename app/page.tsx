@@ -208,11 +208,11 @@ export default function Home() {
       </section>
 
       {/* What We Do Section */}
-      <section className="bg-background py-20">
+      <section className="py-20" style={{ backgroundColor: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-black text-foreground">What We Do</h2>
-            <p className="mt-3 text-gray-600 max-w-xl mx-auto font-light">End-to-end IT asset and e-waste management for enterprises</p>
+            <h2 className="text-3xl md:text-4xl font-black" style={{ color: '#0f1f17' }}>What We Do</h2>
+            <p className="mt-3 max-w-xl mx-auto font-light" style={{ color: '#666666' }}>End-to-end IT asset and e-waste management for enterprises</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -253,9 +253,9 @@ export default function Home() {
                 href: '/sustainability'
               }
             ].map((service, i) => (
-              <Link key={i} href={service.href} className="group bg-white border border-gray-100 rounded-lg p-6 hover:border-primary/30 hover:shadow-md transition-all">
-                <div className="w-10 h-10 bg-section rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
-                  <div className="w-5 h-5 text-primary">
+              <Link key={i} href={service.href} className="group p-6 hover:shadow-md transition-all" style={{ borderRadius: '4px', border: '1px solid #e5e7eb' }}>
+                <div className="w-10 h-10 flex items-center justify-center mb-4 group-hover:opacity-80 transition-opacity" style={{ backgroundColor: '#f3f4f6', borderRadius: '4px' }}>
+                  <div className="w-5 h-5" style={{ color: '#10b981' }}>
                     {service.icon === 'monitor' && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full"><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>}
                     {service.icon === 'shield' && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg>}
                     {service.icon === 'refresh' && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16M8 16H3v5" /></svg>}
@@ -264,9 +264,9 @@ export default function Home() {
                     {service.icon === 'chart' && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full"><path d="M5 21v-6M12 21V3M19 21V9" /></svg>}
                   </div>
                 </div>
-                <h3 className="font-bold text-foreground mb-2">{service.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed font-light">{service.desc}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-primary">
+                <h3 className="font-bold mb-2" style={{ color: '#0f1f17' }}>{service.title}</h3>
+                <p className="text-sm leading-relaxed font-light mb-4" style={{ color: '#999999' }}>{service.desc}</p>
+                <span className="inline-flex items-center gap-1 text-xs font-bold" style={{ color: '#10b981' }}>
                   Learn more
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5"><path d="m9 18 6-6-6-6" /></svg>
                 </span>
