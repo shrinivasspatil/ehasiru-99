@@ -137,7 +137,7 @@ export default function Home() {
       </section>
 
       {/* What We Solve Section */}
-      <section className="bg-foreground py-20">
+      <section style={{ backgroundColor: '#0f1f17' }} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <p className="text-xs font-black uppercase tracking-widest text-primary-light mb-3">The Problem</p>
