@@ -2,6 +2,8 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
 import { Lato } from 'next/font/google'
 import './globals.css'
+import { SiteHeader } from '@/components/site-header'
+import { SiteFooter } from '@/components/site-footer'
 
 const lato = Lato({ 
   variable: '--font-lato', 
@@ -23,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${lato.variable}`}>
       <body className="font-sans antialiased">
-        {children}
+        <SiteHeader />
+        <main className="pt-16">{children}</main>
+        <SiteFooter />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
